@@ -38,7 +38,7 @@ var newArray = [];
     };
 
     function getText() {
-        newArray.String(Math.floor((Math.random() * 6) + 1));
+        newArray.getText;
         document.getElementById("dice").innerHTML = newArray;
         console.log('test');
     }
