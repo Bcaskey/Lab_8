@@ -7,8 +7,25 @@
         <script src="script.js"></script>
 	</head>
 	<body>
-        <div class="myFirstButton"></div><div class="mySecondButton"></div>
-        <!-- <div id="dice"></div> -->
+        <div class="topDiv"><button onclick="newDie()">Add Dice</button></div>
+        <div class="topDiv"><button onclick="rollDie()">Roll Dice</button></div>
+        <div class="topDiv"><button onclick="totalDie()">Total Dice</button></div>
+       
+       <div id="totalArea"></div>
+              
+        <div id="diceArea"></div>
         
 	</body>
 </html>
+
+ <!--    var myFirstButton = document.createElement('button');
+    myFirstButton.innerText = 'Add Dice';
+    myFirstButton.className = 'button';
+    myFirstButton.addEventListener("click", makeDie);
+    document.body.appendChild(myFirstButton)
+    
+    var mySecondButton = document.createElement('button');
+    mySecondButton.innerText = 'Roll Dice';
+    mySecondButton.className = 'button';
+    mySecondButton.ondblclick = Newdie;
+    document.body.appendChild(mySecondButton)   -->

@@ -1,47 +1,47 @@
-document.addEventListener('DOMContentLoaded', function () {
-
-    var myFirstButton = document.createElement('button');
-    myFirstButton.innerText = 'Add Dice';
-    myFirstButton.className = 'button';
-    myFirstButton.onclick = addNewDie;
-    document.body.appendChild(myFirstButton)
-    
-    var mySecondButton = document.createElement('button');
-    mySecondButton.innerText = 'Roll Them Bones';
-    mySecondButton.className = 'button';
-    mySecondButton.onclick = "getText";
-    document.body.appendChild(mySecondButton)
-
-var newArray = [];
-
-    function addNewDie() {
-        var myNewBox = document.createElement('div');
-        var divNumber = (String(Math.floor((Math.random() * 6) + 1)));
-        // divNumber = parseInt(divNumber, 10);
-        myNewBox.id = divNumber;
-        myNewBox.className = 'dice';
-        var randNumber = String(Math.floor((Math.random() * 6) + 1)); //add id number to the dice
-        var pElement = document.createElement('p');
-        myNewBox.className = 'myDie';
-        document.body.appendChild(myNewBox);
-        myNewBox.appendChild(pElement);
-        pElement.innerHTML = randNumber;
-        
-        newArray.push(addNewDie);
+var Die = function() {
+    this.value = null;
+    this.div = null;
+    this.insert = function () {
+        this.div = document.createElement('div');
+        this.div.className = 'myDie';
+        this.roll();
+        document.getElementById('diceArea').appendChild(this.div);
     }
-    
-    Array.prototype.getText = function() {
-        var i;
-        for (i = 0; i < this.length; i++) {
-            this[i] = this[i].String(Math.floor((Math.random() * 6) + 1));
-        }
-    };
 
-    function getText() {
-        newArray.getText;
-        document.getElementById("dice").innerHTML = newArray;
-        console.log('test');
+    this.roll = function() {
+        var num = Math.floor(Math.random() * 6) + 1;
+        this.value = num;
+        this.div.innerHTML = num;   
     }
-});
+}
+
+var dice = [];
+function newDie() {
+    var die = new Die();
+    die.insert();
+    dice.push(die);
+}
+
+function rollDie() {
+    for (var i = 0; i < dice.length; i++) {
+        dice[i].roll();
+    }
+}
+
+function totalDie() {
+    var myCnt = 0;
+    for (var i = 0; i < dice.length; i++) {
+        myCnt += dice[i].value;
+    }
+    var div = document.getElementById('totalArea');
+    div.innerHTML = String('Your total is: ' + myCnt);
+}
 
 
+
+// Extra Credit Try extending the functionality of this lab to support the following features. They are 
+// listed in order from easiest to hardest to implement.
+
+// Add a feature where clicking on a die on the page causes just that one die to roll, updating its face value
+// Add a feature where double clicking on a die on the page causes that die to be removed from the page 
+// (remember to remove the die object from any arrays it may be in too).
