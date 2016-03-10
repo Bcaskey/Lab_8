@@ -4,6 +4,7 @@ var Die = function() {
     this.insert = function () {
         this.div = document.createElement('div');
         this.div.className = 'myDie';
+        this.div.id = String(document.getElementsByClassName('myDie').length);
         this.roll();
         document.getElementById('diceArea').appendChild(this.div);
     }
@@ -27,6 +28,11 @@ function rollDie() {
         dice[i].roll();
     }
 }
+$(document).click(function(){
+    $('.myDie').click(function(){
+    $(this).remove();
+    });
+});
 
 function totalDie() {
     var myCnt = 0;
@@ -36,12 +42,3 @@ function totalDie() {
     var div = document.getElementById('totalArea');
     div.innerHTML = String('Your total is: ' + myCnt);
 }
-
-
-
-// Extra Credit Try extending the functionality of this lab to support the following features. They are 
-// listed in order from easiest to hardest to implement.
-
-// Add a feature where clicking on a die on the page causes just that one die to roll, updating its face value
-// Add a feature where double clicking on a die on the page causes that die to be removed from the page 
-// (remember to remove the die object from any arrays it may be in too).
