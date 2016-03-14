@@ -43,10 +43,3 @@ function totalDie() {
     var div = document.getElementById('totalArea');
     div.innerHTML = String('Your total is: ' + myCnt);
 }
-
-
-// Question, on the delete and roll. I have to target the array, not the DOM.
-
-// Add a feature where clicking on a die on the page causes just that one die to roll, updating its face value
-// Add a feature where double clicking on a die on the page causes that die to be removed from the page 
-// (remember to remove the die object from any arrays it may be in too).
