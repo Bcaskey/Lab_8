@@ -5,6 +5,8 @@ var Die = function() {
         this.div = document.createElement('div');
         this.div.className = 'myDie';
         this.div.id = String(document.getElementsByClassName('myDie').length);
+        // this.div.addEventListern('click', this.roll.bind(this));
+        // this.div.addEventListern('dblclick', this.remove.bind(this));
         this.roll();
         document.getElementById('diceArea').appendChild(this.div);
     }
@@ -28,6 +30,13 @@ function rollDie() {
         dice[i].roll();
     }
 }
+
+// Die.prototype.remove = function() {
+//     var index = dice.indexOf(this);
+//     if (index !== -1);
+//     //missed something
+    
+// }
 $(document).click(function(){
     $('.myDie').click(function(){
     $(this).remove();
